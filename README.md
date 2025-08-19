@@ -1,4 +1,4 @@
-    ```bash
+    ```
     ### Para correr el Docker
 
     cd .\docker
@@ -19,5 +19,5 @@
 
     ### Para detener el contenedor
     docker-compose down
-    
+
     ```
