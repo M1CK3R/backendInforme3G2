@@ -1,15 +1,8 @@
-### Para correr el Docker
-
-```bash
-
-cd .\docker
-
-```
-
 ### Para correr el contenedor
 
 ```bash
 
+cd .\docker
 docker-compose up -d
 
 ```
