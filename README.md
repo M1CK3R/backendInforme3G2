@@ -43,3 +43,11 @@ exit;
 docker-compose down
 
 ```
+
+### Para detener el contenedor junto con los datos guardados anteriormente
+
+```bash
+
+docker-compose down -v
+
+```
