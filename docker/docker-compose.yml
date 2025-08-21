@@ -11,29 +11,31 @@ services:
       MYSQL_PASSWORD: adminpass  # Contraseña del admin
     volumes:
       - mysql_data:/var/lib/mysql  # Persistencia de datos
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Script de inicialización
+      - ./mysql-init:/docker-entrypoint-initdb.d # Script de inicialización
     ports:
       - "3306:3306"  # Puerto: Host:Contenedor
     networks:
       - app_network  # Red personalizada para que se comuniquen los servicios de los contenedores
     restart: unless-stopped  # Reinicio automático de la BBDD
 
-  backend:
-    build: ./backend
-    container_name: backendApp
-    ports:
-      - "3000:3000"
-    environment:
-      DB_HOST: mysql_db
-      DB_USER: useradmin
-      DB_PASSWORD: adminpass
-      DB_NAME: usuarios
-      DB_PORT: 3306
-    depends_on:
-      - mysql_DDBB_I3G2
-    networks:
-      - app-network
-    restart: unless-stopped
+
+  # Comentado para que no se ejecute el backend hasta que se haga xd
+  #backend:
+  # build: ./backend
+  #  container_name: backendApp
+  #  ports:
+  #    - "3000:3000"
+  #  environment:
+  #    DB_HOST: mysql_db
+  #    DB_USER: useradmin
+  #    DB_PASSWORD: adminpass
+  #    DB_NAME: usuarios
+  #    DB_PORT: 3306
+  #  depends_on:
+  #    - mysql_DDBB_I3G2
+  #  networks:
+  #    - app-network
+  #  restart: unless-stopped
 
 networks:
   app_network:  # Red personalizada
