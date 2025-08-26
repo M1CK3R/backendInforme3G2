@@ -20,22 +20,22 @@ services:
 
 
   # Comentado para que no se ejecute el backend hasta que se haga xd
-  #backend:
-  # build: ./backend
-  #  container_name: backendApp
-  #  ports:
-  #    - "3000:3000"
-  #  environment:
-  #    DB_HOST: mysql_db
-  #    DB_USER: useradmin
-  #    DB_PASSWORD: adminpass
-  #    DB_NAME: usuarios
-  #    DB_PORT: 3306
-  #  depends_on:
-  #    - mysql_DDBB_I3G2
-  #  networks:
-  #    - app-network
-  #  restart: unless-stopped
+  backend:
+    build: .
+    container_name: backend_I3G2
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: mysql_db
+      DB_USER: useradmin
+      DB_PASSWORD: adminpass
+      DB_NAME: usuarios
+      DB_PORT: 3306
+    depends_on:
+      - mysql_db
+    networks:
+      - app_network
+    restart: unless-stopped
 
 networks:
   app_network:  # Red personalizada
